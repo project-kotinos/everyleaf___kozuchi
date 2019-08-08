@@ -4,7 +4,7 @@ set -ex
 export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get install tzdata -y
 gem install bundler -v 2.0.1
-apt get install fonts-ipafont
+apt-get install fonts-ipafont
 
 
 
