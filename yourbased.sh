@@ -11,8 +11,11 @@ gem install bundler -v 2.0.1
 bundle install --jobs=3 --retry=3
 
 # before_script
-export DISPLAY=:99.0
-sh -e /etc/init.d/xvfb start
+# export DISPLAY=:99.0
+# sh -e /etc/init.d/xvfb start
 
 #script
-rake
+bundle exec rake db:drop
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake spec
