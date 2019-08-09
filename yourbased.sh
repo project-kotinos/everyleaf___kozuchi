@@ -2,7 +2,7 @@
 set -ex
 
 export DEBIAN_FRONTEND=noninteractive
-apt-get update && apt-get install -y tzdata fonts-ipafont
+apt-get update && apt-get install -y tzdata fonts-ipafont libpq-dev
 gem install bundler -v 2.0.1
  
 
