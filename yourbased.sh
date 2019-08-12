@@ -15,6 +15,7 @@ bundle install --jobs=3 --retry=3
 # sh -e /etc/init.d/xvfb start
 
 #script
+export RAILS_ENV=test
 bundle exec rake db:drop
 bundle exec rake db:create
 bundle exec rake db:migrate
