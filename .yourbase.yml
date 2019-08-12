@@ -10,7 +10,22 @@ build_targets:
     commands:
         - chmod +x yourbased.sh
         - sh ./yourbased.sh
-
+    environment:
+        - PGUSER=ci
+        - PGPASSWORD=ci
+        - PGHOST={{ .Containers.IP "db" }}
+        - DATABASE_URL=postgres://ci:ci@{{ .Containers.IP "db" }}:5432/travis_ci_test
+    dependencies:
+        containers:
+          db:
+            image: postgres:9.4
+            environment:
+              - POSTGRES_PASSWORD=ci
+              - POSTGRES_USER=ci
+              - POSTGRES_DB=travis_ci_test
+            port_check:
+              port: 5432
+              timeout: 45
 ci:
   builds:
     - name: ruby.2.6.3
